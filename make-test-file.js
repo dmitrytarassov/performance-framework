@@ -36,6 +36,12 @@ baseFileData = replaceContent(baseFileData, 'prepare', prepare, 4);
 baseFileData = replaceContent(baseFileData, 'run', run, 8);
 baseFileData = replaceContent(baseFileData, 'clear', clear, 8);
 
+const initFile = path.join(tmpFilePath, dirName, 'init.json');
+
+if (fs.existsSync(initFile)) {
+    baseFileData = baseFileData.replace('process.env.INIT', fs.readFileSync(initFile));
+}
+
 if (!fs.existsSync(`${tmpFilePath}/${dirName}`)) {
     fs.mkdirSync(`${tmpFilePath}/${dirName}`);
 }

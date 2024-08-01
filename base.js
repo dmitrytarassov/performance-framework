@@ -11,7 +11,7 @@ if (RUNS_COUNT > maxRunsCount) {
 
     // @prepare
 
-    for (let i = 0; i < 100_000; i++) {
+    for (let i = 0; i < RUNS_COUNT; i++) {
 
         // @run
 
